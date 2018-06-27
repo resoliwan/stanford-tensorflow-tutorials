@@ -1,4 +1,4 @@
-Country	Birth rate	Life expectancy
+Country	Birthrate	Lifeexpectancy
 Vietnam	1.822	74.828243902
 Vanuatu	3.869	70.819487805
 Tonga	3.911	72.150658537

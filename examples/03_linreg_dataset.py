@@ -59,7 +59,7 @@ with tf.Session() as sess:
         print('Epoch {0}: {1}'.format(i, total_loss/n_samples))
 
     # close the writer when you're done using it
-    writer.close() 
+    writer.close()
     
     # Step 9: output the values of w and b
     w_out, b_out = sess.run([w, b]) 

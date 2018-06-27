@@ -1,5 +1,6 @@
 
 *.pdf
+graphs/
 
 *.SUNet
 *.pyc
