@@ -23,7 +23,6 @@ optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.001).minimize(loss
 ds['Birthrate'][1]
 ds['Lifeexpectancy'][1]
 
-
 w_out = 0
 with tf.Session() as sess:
     sess.run(init_op)

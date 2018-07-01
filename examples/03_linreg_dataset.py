@@ -44,7 +44,6 @@ with tf.Session() as sess:
     # Step 7: initialize the necessary variables, in this case, w and b
     sess.run(tf.global_variables_initializer()) 
     writer = tf.summary.FileWriter('./graphs/linear_reg', sess.graph)
-    
     # Step 8: train the model for 100 epochs
     for i in range(100):
         sess.run(iterator.initializer) # initialize the iterator
@@ -55,12 +54,9 @@ with tf.Session() as sess:
                 total_loss += l
         except tf.errors.OutOfRangeError:
             pass
-            
         print('Epoch {0}: {1}'.format(i, total_loss/n_samples))
-
     # close the writer when you're done using it
     writer.close()
-    
     # Step 9: output the values of w and b
     w_out, b_out = sess.run([w, b]) 
     print('w: %f, b: %f' %(w_out, b_out))

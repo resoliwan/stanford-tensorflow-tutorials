@@ -22,23 +22,17 @@ optimizer = tf.train.GradientDescentOptimizer(learning_rate=1e-2).minimize(loss)
 with tf.Session() as sess:
     sess.run(init_variables)
     writer = tf.summary.FileWriter('./graphs/linear_reg2', sess.graph)
-    for batch in range(400):
+    for batch in range(100):
         cost = 0
         for i in range(df.shape[0]):
-            _, loss_out = sess.run([optimizer, loss], feed_dict={X: df[input_label].loc[i], y: df[target_label][i]})
+            _, loss_out = sess.run([optimizer, loss], feed_dict={X: df[input_label][i], y: df[target_label][i]})
             cost += loss_out
         W_out, b_out = sess.run([W, b])
         print(W_out, b_out, cost)
     writer.close()
-
 
 plt.scatter(df[input_label], df[target_label])
 x_min = df[input_label].min()
 x_max = df[input_label].max()
 plt.plot([x_min, x_max], [W_out * x_min + b_out, W_out * x_max + b_out])
 plt.show()
-
-
-
-
-
