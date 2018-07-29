@@ -23,8 +23,8 @@ dataset = dataset.batch(batch_size)
 iterator = dataset.make_initializable_iterator()
 X_batch, y_batch = iterator.get_next()
 
-X_p = tf.placeholder(tf.float32, [batch_size, 784], name='X_placeholder')
-y_p = tf.placeholder(tf.int32, [batch_size, 10], name='y_placeholder')
+# X_p = tf.placeholder(tf.float32, [batch_size, 784], name='X_placeholder')
+# y_p = tf.placeholder(tf.int32, [batch_size, 10], name='y_placeholder')
 
 
 w = tf.get_variable(name='wrights', shape=(784, 10), initializer=tf.random_normal_initializer())
@@ -53,9 +53,4 @@ with tf.Session() as sess:
         except tf.errors.OutOfRangeError:
             pass
         print('t_loss', t_loss)
-
-
-        
-
-
     writer.close()
